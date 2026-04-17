@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kinetic Flow — BJJ Performance Tracker</title>
+  <meta name="description" content="Track your BJJ sessions, visualise your progress, discover open mats, and stamp your Mat Passport. Built for grapplers." />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Kinetic Flow — BJJ Performance Tracker" />
+  <meta property="og:description" content="Track sessions, build streaks, discover open mats. Your grappling journal in your pocket." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kineticflow.app" />
+  <style>
+    :root {
+      --bg:       #0f0f12;
+      --surface:  #1a1a22;
+      --border:   rgba(255,255,255,0.08);
+      --primary:  #c084fc;
+      --on-primary: #1a0030;
+      --text:     #e8e8f0;
+      --muted:    #9090a8;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    /* ── Nav ── */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 32px;
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0;
+      background: rgba(15,15,18,0.85);
+      backdrop-filter: blur(16px);
+      z-index: 100;
+    }
+    .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo {
+      width: 32px; height: 32px;
+      background: var(--primary);
+      border-radius: 8px;
+      display: grid; place-items: center;
+      font-size: 16px;
+    }
+    .nav-brand span { font-weight: 800; color: var(--text); font-size: 1rem; }
+    .nav-links { display: flex; gap: 24px; list-style: none; }
+    .nav-links a { color: var(--muted); font-size: 0.9rem; text-decoration: none; transition: color .2s; }
+    .nav-links a:hover { color: var(--primary); }
+
+    /* ── Hero ── */
+    .hero {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 100px 24px 80px;
+      text-align: center;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(192,132,252,0.12);
+      border: 1px solid rgba(192,132,252,0.3);
+      border-radius: 999px;
+      padding: 5px 14px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--primary);
+      letter-spacing: .03em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+    .hero h1 {
+      font-size: clamp(2.4rem, 6vw, 3.8rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -.02em;
+      margin-bottom: 20px;
+    }
+    .hero h1 em { font-style: normal; color: var(--primary); }
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 40px;
+    }
+    .cta-group { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--primary);
+      color: var(--on-primary);
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 13px 28px;
+      border-radius: 14px;
+      text-decoration: none;
+      transition: opacity .2s;
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .btn-primary:hover { opacity: 0.88; }
+    .btn-ghost {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 13px 28px;
+      border-radius: 14px;
+      text-decoration: none;
+      transition: border-color .2s;
+    }
+    .btn-ghost:hover { border-color: var(--primary); }
+
+    /* ── Features grid ── */
+    .features {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 80px 24px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .feat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px;
+    }
+    .feat-icon {
+      width: 44px; height: 44px;
+      background: rgba(192,132,252,0.12);
+      border-radius: 12px;
+      display: grid; place-items: center;
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+    .feat-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+    .feat-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 24px;
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    footer a { color: var(--muted); text-decoration: none; margin: 0 10px; }
+    footer a:hover { color: var(--primary); }
+    footer .brand { font-weight: 700; color: var(--text); margin-bottom: 10px; display: block; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="/">
+    <div class="nav-logo">🥋</div>
+    <span>Kinetic Flow</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#features">Features</a></li>
+    <li><a href="privacy.html">Privacy</a></li>
+    <li><a href="terms.html">Terms</a></li>
+    <li><a href="mailto:hello@kineticflow.app">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="badge">🥋 Now available on iOS</div>
+  <h1>Your grappling journey,<br><em>tracked and visualised.</em></h1>
+  <p>Log sessions, build streaks, discover open mats nearby, and stamp your Mat Passport every time you hit a new gym.</p>
+  <div class="cta-group">
+    <!-- Replace href with your real App Store link -->
+    <a href="https://apps.apple.com/app/kinetic-flow" class="btn-primary">
+      🍎 Download on the App Store
+    </a>
+    <a href="#features" class="btn-ghost">See features</a>
+  </div>
+</section>
+
+<section class="features" id="features">
+  <div class="feat-card">
+    <div class="feat-icon">🔥</div>
+    <h3>Streak Tracking</h3>
+    <p>Stay accountable with daily training streaks and milestone celebrations. Never break the chain.</p>
+  </div>
+  <div class="feat-card">
+    <div class="feat-icon">📊</div>
+    <h3>Weekly Load Chart</h3>
+    <p>Visualise your training volume across the week. Spot overtraining and rest-day patterns at a glance.</p>
+  </div>
+  <div class="feat-card">
+    <div class="feat-icon">🗺️</div>
+    <h3>Open Mat Map</h3>
+    <p>Find gyms hosting open mats tonight with live filters for Gi, No-Gi, and competition classes.</p>
+  </div>
+  <div class="feat-card">
+    <div class="feat-icon">🛂</div>
+    <h3>Mat Passport</h3>
+    <p>Every gym you visit earns a stamp. Rate gyms on Google Maps directly from your passport.</p>
+  </div>
+  <div class="feat-card">
+    <div class="feat-icon">📝</div>
+    <h3>Training Journal</h3>
+    <p>Log rounds, techniques, and reflection notes after every session. Your progress is the proof.</p>
+  </div>
+  <div class="feat-card">
+    <div class="feat-icon">🥋</div>
+    <h3>Belt Progress</h3>
+    <p>Track stripes and belt milestones. See exactly how far you've come on your BJJ journey.</p>
+  </div>
+</section>
+
+<footer>
+  <span class="brand">Kinetic Flow</span>
+  <div>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Use</a>
+    <a href="mailto:hello@kineticflow.app">Contact</a>
+  </div>
+  <p style="margin-top:14px">© 2026 Kinetic Flow. Made for the mats. 🥋</p>
+</footer>
+
+</body>
+</html>

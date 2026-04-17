@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Kinetic Flow</title>
+  <style>
+    :root {
+      --bg:       #0f0f12;
+      --surface:  #1a1a22;
+      --border:   rgba(255,255,255,0.08);
+      --primary:  #c084fc;
+      --text:     #e8e8f0;
+      --muted:    #9090a8;
+      --max:      720px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      padding: 0 20px 80px;
+    }
+    header {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 48px 0 32px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .logo {
+      width: 40px; height: 40px;
+      background: var(--primary);
+      border-radius: 10px;
+      display: grid; place-items: center;
+      font-size: 20px;
+    }
+    header h1 { font-size: 1.1rem; font-weight: 700; color: var(--text); }
+    header span { font-size: 0.85rem; color: var(--muted); }
+    main { max-width: var(--max); margin: 0 auto; padding-top: 40px; }
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .meta {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 36px;
+    }
+    h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 36px 0 10px;
+    }
+    p { color: var(--muted); margin-bottom: 14px; }
+    ul { color: var(--muted); padding-left: 22px; margin-bottom: 14px; }
+    ul li { margin-bottom: 6px; }
+    a { color: var(--primary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px 24px;
+      margin: 32px 0;
+    }
+    .card p { margin: 0; font-size: 0.9rem; }
+    footer {
+      max-width: var(--max);
+      margin: 60px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    footer a { color: var(--muted); }
+    footer a:hover { color: var(--primary); }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">🥋</div>
+  <div>
+    <h1>Kinetic Flow</h1>
+    <span>BJJ Performance Tracker</span>
+  </div>
+</header>
+
+<main>
+  <h2>Privacy Policy</h2>
+  <p class="meta">Effective date: April 17, 2026 &nbsp;·&nbsp; Last updated: April 17, 2026</p>
+
+  <div class="card">
+    <p><strong style="color:var(--text)">TL;DR —</strong> Kinetic Flow stores your training data on your device and, if you create an account, in our secure cloud. We never sell your data. We don't run ads. You can delete everything at any time.</p>
+  </div>
+
+  <h3>1. Who We Are</h3>
+  <p>Kinetic Flow ("we", "our", "us") is a mobile application for tracking BJJ training sessions, gym visits, and personal progress. The app is operated as an independent project. Questions? Reach us at <a href="mailto:privacy@kineticflow.app">privacy@kineticflow.app</a>.</p>
+
+  <h3>2. Information We Collect</h3>
+  <p>We collect only what is necessary to provide the app's features:</p>
+  <ul>
+    <li><strong>Account data</strong> — When you sign in with Apple, we receive a user identifier and, if you choose to share it, your name. We never receive your Apple ID email unless you opt in.</li>
+    <li><strong>Training data</strong> — Session dates, duration, technique tags, and journal entries you create within the app.</li>
+    <li><strong>Gym visit data</strong> — Gyms you mark as visited ("Mat Passport") including timestamps.</li>
+    <li><strong>Location</strong> — Approximate location (city-level), used only to show nearby gyms and calculate distances. Location data is <em>never</em> stored on our servers.</li>
+    <li><strong>Device data</strong> — App version and iOS version, collected anonymously for crash reporting only.</li>
+  </ul>
+
+  <h3>3. How We Use Your Information</h3>
+  <ul>
+    <li>Provide, personalise, and improve the app experience</li>
+    <li>Display your training stats, streak, belt progress, and Mat Passport</li>
+    <li>Show gyms near your current location (on-device only)</li>
+    <li>Diagnose crashes and fix bugs (anonymised telemetry via Apple's built-in crash reporting)</li>
+  </ul>
+  <p>We do <strong>not</strong> use your data for advertising, profiling, or sale to third parties.</p>
+
+  <h3>4. Data Storage and Security</h3>
+  <p>Training data entered while not signed in is stored locally using <strong>SwiftData</strong> on your device. When you create an account, data is synced to a <strong>Supabase</strong>-hosted Postgres database (hosted on AWS us-east-1) with row-level security — only your account can read your rows. Data in transit uses TLS 1.2+. Data at rest is encrypted by the cloud provider.</p>
+
+  <h3>5. Third-Party Services</h3>
+  <ul>
+    <li><strong>Apple Sign In</strong> — <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's Privacy Policy</a></li>
+    <li><strong>Supabase</strong> (cloud database) — <a href="https://supabase.com/privacy" target="_blank" rel="noopener">Supabase Privacy Policy</a></li>
+    <li><strong>Google Maps</strong> (optional "Rate on Google" links) — <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>. Tapping these links opens Google Maps; we pass no personal data to Google.</li>
+  </ul>
+  <p>We do not integrate Facebook, TikTok, advertising SDKs, or analytics platforms that track you across apps.</p>
+
+  <h3>6. Children's Privacy</h3>
+  <p>Kinetic Flow is not directed at children under 13. We do not knowingly collect personal information from anyone under 13. If you believe a child has provided us data, contact us and we will delete it promptly.</p>
+
+  <h3>7. Your Rights and Choices</h3>
+  <ul>
+    <li><strong>Access & export</strong> — All your training data is visible within the app. We will provide a JSON export on request.</li>
+    <li><strong>Deletion</strong> — You can delete your account from <em>Profile → Account → Delete Account</em>. This permanently removes all cloud data within 30 days. Local SwiftData is erased when you delete the app.</li>
+    <li><strong>Location</strong> — You can revoke location access at any time in <em>Settings → Kinetic Flow → Location</em>.</li>
+    <li><strong>Data portability</strong> — Email us to request a full data export.</li>
+  </ul>
+  <p>If you are located in the European Economic Area or the UK, you have additional rights under GDPR / UK GDPR including the right to object to processing and the right to lodge a complaint with your supervisory authority.</p>
+
+  <h3>8. Data Retention</h3>
+  <p>We retain your data for as long as your account is active. After account deletion, data is purged from production systems within 30 days and from encrypted backups within 90 days.</p>
+
+  <h3>9. Changes to This Policy</h3>
+  <p>We may update this policy. Material changes will be notified via an in-app prompt before they take effect. The "last updated" date at the top of this page will always reflect the current version.</p>
+
+  <h3>10. Contact Us</h3>
+  <p>For privacy questions, data requests, or concerns:</p>
+  <ul>
+    <li>Email: <a href="mailto:privacy@kineticflow.app">privacy@kineticflow.app</a></li>
+    <li>Web: <a href="https://kineticflow.app/privacy">kineticflow.app/privacy</a></li>
+  </ul>
+</main>
+
+<footer>
+  <span>© 2026 Kinetic Flow. All rights reserved.</span>
+  <span>
+    <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp;
+    <a href="terms.html">Terms of Use</a> &nbsp;·&nbsp;
+    <a href="mailto:privacy@kineticflow.app">Contact</a>
+  </span>
+</footer>
+
+</body>
+</html>
